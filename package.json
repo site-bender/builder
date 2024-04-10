@@ -1,0 +1,65 @@
+{
+	"name": "@sitebender/builder",
+	"version": "0.0.1",
+	"keywords": [
+		"sitebuilder",
+		"sitebender",
+		"vanilla"
+	],
+	"homepage": "https://github.com/site-bender/builder#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/site-bender/components.git"
+	},
+	"license": "MIT",
+	"author": "Charles F. Munat <coder@craft-code.dev>",
+	"type": "module",
+	"exports": {},
+	"files": [
+		"lib",
+		"src",
+		"index.ts"
+	],
+	"scripts": {
+		"api": "vercel dev",
+		"astro": "astro",
+		"build": "astro build",
+		"build:lib": "tsc && vite build --config vitest.lib.config.js",
+		"bump": "pnpm version patch --force",
+		"bump:major": "pnpm version major --force",
+		"bump:minor": "pnpm version minor --force",
+		"check:exports": "pnpx find-unused-exports",
+		"check:packages": "pnpx npm-check -u",
+		"dep": "pnpm fmt && pnpm lint && pnpm lint:fix && pnpm check:packages && pnpm build && rm -rf .cache .history dist",
+		"dep:prod": "pnpm dep:dev && vercel deploy",
+		"dev": "astro dev",
+		"fmt": "pnpm prettier . --write",
+		"lint": "pnpx oxlint@latest",
+		"lint:css": "pnpm stylelint \"src/**/*.css\"",
+		"lint:fix": "pnpm stylelint \"src/**/*.css\" --fix",
+		"preview": "astro preview",
+		"pub": "npm publish --access=public",
+		"push": "git add -A && pnpm bump && git push",
+		"start": "astro dev",
+		"test": "pnpm test:int"
+	},
+	"devDependencies": {
+		"@astrojs/check": "^0.5.10",
+		"@formatjs/intl-getcanonicallocales": "^2.3.0",
+		"@formatjs/intl-listformat": "^7.5.5",
+		"@formatjs/intl-locale": "^3.4.5",
+		"@sitebender/fp": "^0.0.4",
+		"@sitebender/operations": "^0.0.4",
+		"@types/qrcode": "^1.5.5",
+		"astro": "^4.5.18",
+		"prettier": "^3.2.5",
+		"prettier-plugin-astro": "^0.13.0",
+		"qrcode": "^1.5.3",
+		"stylelint": "^16.3.1",
+		"stylelint-config-standard": "^36.0.0",
+		"temporal-polyfill": "^0.2.3",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.8",
+		"vitest": "^1.4.0"
+	}
+}
