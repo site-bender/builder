@@ -1,6 +1,6 @@
 {
 	"name": "@sitebender/builder",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"keywords": [
 		"sitebuilder",
 		"sitebender",
@@ -23,7 +23,7 @@
 	"scripts": {
 		"api": "vercel dev",
 		"astro": "astro",
-		"build": "astro build",
+		"build": "tsc & astro build",
 		"build:lib": "tsc && vite build --config vitest.lib.config.js",
 		"bump": "pnpm version patch --force",
 		"bump:major": "pnpm version major --force",
